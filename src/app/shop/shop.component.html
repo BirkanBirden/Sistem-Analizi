@@ -1,0 +1,53 @@
+<app-navbar></app-navbar>
+
+<div class="container pt-100 mb-5">
+  <div class="row">
+    <div class="col-md-3">
+
+      <app-sepet></app-sepet>
+
+      <button routerLink="/sepetdetay" class="btn btn-dark">Sepete Git</button>
+      <div class="list-group mt-3">
+        <button class="list-group-item list-group-action" (click)="kategoriDegis()">Tüm Kategoriler</button>
+        <button *ngFor="let k of kategoriler" (click)="kategoriDegis(k)" class="list-group-item list-group-action"
+          [class.active]="k == seciliKategori">
+          {{k.isim}}
+        </button>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="alert alert-warning">
+            <div class="form-inline float-right m-0 p-0">
+              <select class="form-control-sm " [value]="sayfaBasiUrun" (change)="sayfaBoyutDegis($event.target.value)">
+                <option value="2">2 tane</option>
+                <option value="4">4 tane</option>
+                <option value="6">6 tane</option>
+                <option value="8">8 tane</option>
+                <option value="10">10 tane</option>
+              </select>
+            </div>
+            {{ seciliUrun.length }} Adet Ürün Bulundu...
+          </div>
+        </div>
+
+      </div>
+
+      <app-urun-list [urunler]="urunler"></app-urun-list>
+      <div class="row mt-4">
+        <div class="col">
+          <div class="btn-group">
+            <button *ngFor="let sayfa of sayfalar" (click)="sayfaDegis(sayfa)" class="btn btn-outline-success"
+              [class.active]="sayfa === seciliSayfa">
+              {{ sayfa }}
+            </button>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

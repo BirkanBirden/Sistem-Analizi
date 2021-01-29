@@ -1,0 +1,15 @@
+<h5>
+  {{duzenle ? "Edit" :"create" }} kategori
+</h5>
+
+<form #form="ngForm" (ngSubmit)="kaydet(form)">
+  <div class="form-group">
+    <label>İsim</label>
+    <input type="text" class="form-control" name="resim" [(ngModel)]="kategori.isim">
+  </div>
+
+  <button type="submit" class="btn btn-secondary mr-2">
+    {{duzenle ? "Edit" :"create" }} kategori
+  </button>
+  <button class="btn btn-warning " routerLink="/admin/main/kategoriler">İptal Et</button>
+</form>

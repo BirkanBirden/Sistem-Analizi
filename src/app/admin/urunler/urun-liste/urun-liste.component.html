@@ -1,0 +1,25 @@
+<table class="table table-hover table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>name</th>
+      <th>price</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let u of urunGetir()">
+      <td>
+        <img src="/assets/img/{{u.resimUrl}}" width="50">
+      </td>
+      <td>{{u.isim}}</td>
+      <td>{{u.fiyat}} TL</td>
+      <td>
+        <button class="btn btn-warning btn-sm" [routerLink]="['/admin/main/urunler/edit',u.id]">Edit</button>
+        <button class="btn btn-danger btn-sm ml-1" (click)="urunSil(u)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<button class="btn btn-primary" routerLink="/admin/main/urunler/olustur">sela</button>

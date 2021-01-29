@@ -1,0 +1,26 @@
+.<div class="container-fluid">
+  <div class="row">
+    <div class="col bg-primary p-2 text-white">
+      Admin Panel
+    </div>
+  </div>
+  <div class="row justify-content-center mt-3">
+    <div class="col-md-3">
+      <button routerLink="/shop" class="btn btn-outline-secondary btn-block">Alışverişe Devam Et</button>
+
+      <button routerLinkActive="active" routerLink="/admin/main/urunler"
+        class="btn btn-outline-secondary btn-block">Ürünler</button>
+
+      <button routerLinkActive="active" routerLink="/admin/main/kategoriler"
+        class="btn btn-outline-secondary btn-block">Kategoriler</button>
+
+      <button routerLinkActive="active" routerLink="/admin/main/siparis"
+        class="btn btn-outline-secondary btn-block">Siparisler</button>
+
+      <button routerLink="#" class="btn btn-outline-secondary btn-block">Çıkış Yap</button>
+    </div>
+    <div class="col-md-9">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,77 @@
+<app-navbar></app-navbar>
+
+<div class="container mb-5 pt-100">
+  <h1 class="mb-2">Sepetiniz</h1>
+  <div class="row">
+    <div class="col-md-8">
+      <ng-container *ngIf="cart.cartSayi>0">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Ürün</th>
+              <th>Fiyat</th>
+              <th>Miktar</th>
+              <th>Toplam</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of cart.items">
+              <td>
+                <img src="assets/img/{{item.urun.resimUrl}}" width="80">
+              </td>
+              <td>{{item.urun.isim}}</td>
+              <td>{{item.urun.fiyat}}</td>
+              <td>
+                <input type="text" class="form-control" style="width: 50px;" [value]="item.adet"
+                  (change)="cart.adetGuncelle(item.urun,$event.target.value)">
+
+              </td>
+              <td>{{item.adet* item.urun.fiyat}} TL</td>
+              <td>
+                <button (click)="cart.urunSil(item.urun.id)" class="btn btn-danger btn-sm">
+                  <i class="fa fa-times fa-fw"></i>
+                </button>
+              </td>
+
+            </tr>
+          </tbody>
+        </table>
+
+      </ng-container>
+      <ng-container *ngIf="cart.cartSayi==0">
+        <div class="alert alert-warning mt-3">
+
+          Sepetinizde Ürün Bulunmamaktadır. <br>
+          <button routerLink="/shop" class="btn btn-link p-0"> Alışverişe Devam edin.</button>
+
+        </div>
+
+      </ng-container>
+
+    </div>
+
+    <div class="col-md-4">
+
+      <ng-container *ngIf="cart.cartSayi>0">
+        <div class="text-center">
+          <h4> Alışveriş toplamı</h4>
+        </div>
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>Toplam</th>
+              <th>{{cart.toplam}} TL</th>
+            </tr>
+          </tbody>
+        </table>
+        <div>
+          <button routerLink="/shop" class="btn btn-primary btn-sm">Alışverişe devam et</button>
+          <button routerLink="/siparistamamla" class="btn btn-primary btn-sm ml-2">Alışverişi tamamla</button>
+        </div>
+      </ng-container>
+
+    </div>
+  </div>
+
+</div>

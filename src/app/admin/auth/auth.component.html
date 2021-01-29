@@ -1,0 +1,22 @@
+<div class="bg-danger p-2 text-center text-white" *ngIf="errorMesaj!=null">
+
+  {{errorMesaj}}
+</div>
+
+
+<div class="p-2">
+  <form #form="ngForm" (ngSubmit)="giris(form)">
+    <div class="form-group">
+      <label>Kullanıcı adı</label>
+      <input type="text" class="form-control" name="kuladi" [(ngModel)]="kuladi" required>
+    </div>
+    <div class="form-group">
+      <label>Şifre</label>
+      <input type="text" class="form-control" name="kulsifre" [(ngModel)]="kulsifre" required>
+    </div>
+    <div class="text-center">
+      <button class="btn btn-success" type="submit"> Giriş Yap</button>
+      <button class="btn btn-primary" routerLink="/"> Geri Dön</button>
+    </div>
+  </form>
+</div>
